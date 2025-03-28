@@ -1,0 +1,26 @@
+{
+  "name": "lbp-api",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node --stack_size=1024 --max-old-space-size=1024 -r ts-node/register/transpile-only -r tsconfig-paths/register src/index.ts",
+    "create-pair": "node --stack_size=1024 --max-old-space-size=1024 -r ts-node/register/transpile-only -r tsconfig-paths/register src/cli/createLbpPair.ts"
+  },
+  "dependencies": {
+    "@initia/initia.js": "^1.0.4",
+    "dotenv": "^16.4.7",
+    "eslint-plugin-prettier": "^5.2.5",
+    "express": "^4.21.2",
+    "lodash": "^4.17.21",
+    "pg": "^8.14.1",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typeorm": "^0.3.21",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.28.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/lodash": "^4.17.16"
+  }
+}
