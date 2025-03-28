@@ -29,6 +29,7 @@ npm install
 REST_URI=https://rest.testnet.initia.xyz
 PAIR_METADATA= # pair metadata
 PAIR_CREATION_HEIGHT= # height that pair created
+HEIGHT_INTERVAL=100 # pair balance storing interval
 PORT=3000
 
 DBHOST=localhost
