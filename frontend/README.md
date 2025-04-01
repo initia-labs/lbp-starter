@@ -49,9 +49,10 @@ You need to modify the following files to suit your project. Currently, they are
     | `uusdc`  | `ubtc`   | `uusdc`    | `ubtc`      | Swap values |
   - If `coinA` is the base asset and `coinB` is the quote asset, keep `baseCoin` and `quoteCoin` as they are.  
   - If `coinB` is the base asset and `coinA` is the quote asset, swap their values accordingly.  
+
 ### [`src/data/api.ts`](src/data/api.ts)
 
-- `fetchPrices()`: Replace the mock API with the actual endpoint provided by your backend process. The current setup uses mock data to demonstrate functionality in an isolated environment. (After replacing it, you can delete [`src/data/example.json`](src/data/example.json).)
+- `fetchPrices()`: Replace the mock API with the actual endpoint `/prices?limit=100` provided by your backend process. The current setup uses mock data to demonstrate functionality in an isolated environment. (After replacing it, you can delete [`src/data/example.json`](src/data/example.json).)
 
 ### [`src/main.tsx`](src/main.tsx)
 
