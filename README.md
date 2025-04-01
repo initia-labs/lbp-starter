@@ -23,7 +23,7 @@ A minimal frontend template for LBP projects, featuring:
 
 ## Usage Instructions
 
-> ⚠️ **Run Order Matters**:
+> Instructions on how to run the backend and frontend can be found in their respective subfolders.
 > Always start by running the **backend process first**, followed by the **frontend process**. The frontend relies on the backend API to function correctly.
 
 ### Deployment
