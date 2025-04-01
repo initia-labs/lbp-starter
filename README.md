@@ -1,4 +1,4 @@
-# LBP Starter Kit
+# LBP Starter
 
 A comprehensive starter kit for projects utilizing **Liquidity Bootstrapping Pools (LBP)**. This repository provides both backend and frontend solutions to help you get started quickly.
 
@@ -18,5 +18,5 @@ A minimal frontend template for LBP projects, featuring:
 
 ## Project Structure
 
-- **[LBP Backend Starter](backend/README.md)** – API for historical & estimated pricing
-- **[LBP Frontend Starter](frontend/README.md)** – UI template for LBP interactions
+- **[LBP Backend Starter](backend)** – API for historical & estimated pricing
+- **[LBP Frontend Starter](frontend)** – UI template for LBP interactions
