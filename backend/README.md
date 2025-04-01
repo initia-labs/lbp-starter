@@ -9,10 +9,11 @@ Sample LBP API for showing historical and estimated prices during the LBP period
 
 ## Installation
 
-### 1. Clone the repository
+### 1. Clone the repository and move to backend directory
 
 ```bash
-git clone https://github.com/initia-labs/lbp-api.git
+git clone https://github.com/initia-labs/lbp-starter.git
+cd lbp-starter/backend
 ```
 
 ### 2. Install dependencies

@@ -16,8 +16,8 @@ This project is built with [Vite](https://vitejs.dev/).
 ### Clone and Run Locally
 
 ```bash
-git clone https://github.com/initia-labs/lbp-frontend-starter
-cd lbp-frontend-starter
+git clone https://github.com/initia-labs/lbp-starter
+cd lbp-starter/frontend
 pnpm install
 pnpm dev
 ```
