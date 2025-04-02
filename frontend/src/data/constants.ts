@@ -2,22 +2,6 @@ export const restUrl = "https://rest.testnet.initia.xyz"
 
 export const pair = "0x7c4b0843e2544ec4e09f459a24edee3172f84f7a07a1fd78c49cd1fa4bd14d87"
 
-export const config = {
-  swap_fee_rate: "0.003",
-  weights: {
-    weights_after: {
-      coin_a_weight: "0.5",
-      coin_b_weight: "0.5",
-      timestamp: "1743390000",
-    },
-    weights_before: {
-      coin_a_weight: "0.01",
-      coin_b_weight: "0.99",
-      timestamp: "1743217200",
-    },
-  },
-}
-
 export interface PairCoin {
   denom: string
   metadata: string

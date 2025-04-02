@@ -26,11 +26,36 @@ npm install
 
 ### 1. Set config in .env
 
-```env
+Create a `.env` file in the root directory and set the following environment variables:
+
+> In LBP backend, we use `dotenv` for managing environment variable for development. See `.env_sample` for reference.
+
+| Variable             | Description                                                                 |
+| -------------------- | --------------------------------------------------------------------------- |
+| REST_URI             | REST URI for Initia L1                                                      |
+| PAIR_METADATA        | Pair metadata                                                               |
+| PAIR_CREATION_HEIGHT | Pair creation height                                                        |
+| HEIGHT_INTERVAL      | Interval for storing pair balance in database                               |
+| PORT                 | Port for API server (Default: 3000)                                         |                                                       
+| DBHOST               | Database host                                                               |
+| DBHOSTRO             | Database read-only host                                                     |
+| DBPORT               | Database port                                                               |
+| DBUSERNAME           | Database username                                                           |
+| DBPASS               | Database password                                                           |
+| DATABASE             | Database name                                                               |
+
+For `PAIR_METADATA` and `PAIR_CREATION_HEIGHT`, you can get these values after creating the pair. 
+You can check on Scan for the pair creation transaction and get the metadata and height from the `0x1::dex::CreatePairEvent`.
+`liquidity_token` will be the `PAIR_METADATA` and block hegiht of the transaction will be the `PAIR_CREATION_HEIGHT`.
+
+![Create LBP Pair](./image.png)
+
+```bash
+# example of .env
 REST_URI=https://rest.testnet.initia.xyz
-PAIR_METADATA= # pair metadata
-PAIR_CREATION_HEIGHT= # height that pair created
-HEIGHT_INTERVAL=100 # pair balance storing interval
+PAIR_METADATA= # Set after creating the pair
+PAIR_CREATION_HEIGHT= # Set after creating the pair
+HEIGHT_INTERVAL=100
 PORT=3000
 
 DBHOST=localhost
@@ -55,6 +80,7 @@ Network Information
   "chainId": "initiation-2"
 }
 
+# Account you add the mnemonic for needs to have gas token on Initia L1 since it'll be used to create the pair
 > Enter your bip39 mnemonic
 wood syrup deposit ...
 
@@ -170,11 +196,26 @@ y
 
 ### 3. Update Config with your pair
 
-```.env
-...
-PAIR_METADATA=0x1389e8bfeb9978412866e946a212f27aaa167f60c1345d9499d9d174171079b9 # pair metadata
-PAIR_CREATION_HEIGHT=7089485 # height that pair created
-...
+After creating the pair, update the `.env` file with the pair metadata and creation height. 
+
+```bash
+# .env
+REST_URI=https://rest.testnet.initia.xyz   
+
+# Update with your pair metadata
+PAIR_METADATA=0x1389e8bfeb9978412866e946a212f27aaa167f60c1345d9499d9d174171079b9 
+# Update with your pair creation height
+PAIR_CREATION_HEIGHT=7089485 
+
+HEIGHT_INTERVAL=100
+PORT=3000
+
+DBHOST=localhost
+DBHOSTRO=localhost
+DBPORT=5432
+DBUSERNAME=postgres
+DBPASS=
+DATABASE=lbp
 ```
 
 ### 4. Run Indexer/API
