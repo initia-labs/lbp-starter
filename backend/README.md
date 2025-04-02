@@ -32,7 +32,7 @@ Create a `.env` file in the root directory and set the following environment var
 
 | Variable             | Description                                                                 |
 | -------------------- | --------------------------------------------------------------------------- |
-| REST_URI             | REST URI for Initia chain                                                   |
+| REST_URI             | REST URI for Initia L1                                                      |
 | PAIR_METADATA        | Pair metadata                                                               |
 | PAIR_CREATION_HEIGHT | Pair creation height                                                        |
 | HEIGHT_INTERVAL      | Interval for storing pair balance in database                               |
@@ -44,12 +44,17 @@ Create a `.env` file in the root directory and set the following environment var
 | DBPASS               | Database password                                                           |
 | DATABASE             | Database name                                                               |
 
+For `PAIR_METADATA` and `PAIR_CREATION_HEIGHT`, you can get these values after creating the pair. 
+You can check on Scan for the pair creation transaction and get the metadata and height from the `0x1::dex::CreatePairEvent`.
+`liquidity_token` will be the `PAIR_METADATA` and block hegiht of the transaction will be the `PAIR_CREATION_HEIGHT`.
+
+![Create LBP Pair](./image.png)
 
 ```bash
 # example of .env
 REST_URI=https://rest.testnet.initia.xyz
-PAIR_METADATA=
-PAIR_CREATION_HEIGHT=
+PAIR_METADATA= # Set after creating the pair
+PAIR_CREATION_HEIGHT= # Set after creating the pair
 HEIGHT_INTERVAL=100
 PORT=3000
 
