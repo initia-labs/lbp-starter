@@ -12,7 +12,11 @@ import * as crypto from 'crypto'
 import { config } from '../config'
 
 async function main() {
-  const rest = new RESTClient(config.REST_URI)
+  const rest = new RESTClient(config.REST_URI, {
+    gasPrices: {
+      uinit: 0.015,
+    },
+  })
   const chainId = await rest.tendermint.chainId()
 
   const networkInfo = {
@@ -50,6 +54,9 @@ async function main() {
   if (coinAStartWeight > 1) {
     throw Error(`Percent can not be higer than 100%`)
   }
+  if (coinAStartWeight.toString().split('.')[1]?.length > 6) {
+    throw Error(`coinAStartWeight cannot have more than 6 decimal places`)
+  }
   const coinBStartWeight = 1 - coinAStartWeight
 
   const endTimestamp = Math.floor(
@@ -61,6 +68,9 @@ async function main() {
   )
   if (coinAEndWeight > 1) {
     throw Error(`Percent can not be higer than 100%`)
+  }
+  if (coinAEndWeight.toString().split('.')[1]?.length > 6) {
+    throw Error(`coinAEndWeight cannot have more than 6 decimal places`)
   }
   const coinBEndWeight = 1 - coinAEndWeight
 
@@ -93,11 +103,11 @@ async function main() {
       bcs.string().serialize(symbol),
       bcs.bigdecimal().serialize(swapFeeRate),
       bcs.u64().serialize(startTimestamp),
-      bcs.bigdecimal().serialize(coinAStartWeight),
-      bcs.bigdecimal().serialize(coinBStartWeight),
+      bcs.bigdecimal().serialize(coinAStartWeight.toFixed(6)),
+      bcs.bigdecimal().serialize(coinBStartWeight.toFixed(6)),
       bcs.u64().serialize(endTimestamp),
-      bcs.bigdecimal().serialize(coinAEndWeight),
-      bcs.bigdecimal().serialize(coinBEndWeight),
+      bcs.bigdecimal().serialize(coinAEndWeight.toFixed(6)),
+      bcs.bigdecimal().serialize(coinBEndWeight.toFixed(6)),
       bcs.object().serialize(coinA),
       bcs.object().serialize(coinB),
       bcs.u64().serialize(coinAAmount),
